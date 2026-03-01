@@ -61,32 +61,42 @@
   </div>
 
   <header class="navbar">
-    <div class="brand">
-      <img src="public/benjicode.png" alt="Logo BA" class="brand-mark" />
-      <div class="brand-text">
-        <span class="brand-name">BenjiCode</span>
-        <span class="brand-role">Software Engineer</span>
+    <div class="nav-top">
+      <div class="brand">
+        <img src="public/benjicode.png" alt="Logo BA" class="brand-mark" />
+        <div class="brand-text">
+          <span class="brand-name">BenjiCode</span>
+          <span class="brand-role">Software Engineer</span>
+        </div>
       </div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-panel">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <nav class="nav-links">
-      <a href="#inicio">Inicio</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#habilidades">Habilidades</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn ghost" href="https://github.com/Benji379" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.87 10.93c.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3.02 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.57.23 2.73.11 3.02.75.81 1.2 1.85 1.2 3.11 0 4.43-2.68 5.4-5.24 5.69.42.36.8 1.09.8 2.2 0 1.59-.02 2.88-.02 3.28 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg>
-        </span>
-        GitHub
-      </a>
-      <a class="btn solid" href="/curriculum/" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 2A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5V9.4a2 2 0 0 0-.6-1.4l-5.8-5.8a2 2 0 0 0-1.4-.6H6.5ZM6 4.5c0-.28.22-.5.5-.5H12v4.5c0 .55.45 1 1 1H17v10c0 .28-.22.5-.5.5h-10A.5.5 0 0 1 6 20.5v-16Zm11 4.5h-3V6l3 3ZM8.75 13a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"></path></svg>
-        </span>
-        Curriculum
-      </a>
+
+    <div class="nav-menu" id="menu-panel">
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn ghost" href="https://github.com/Benji379" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.87 10.93c.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3.02 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.57.23 2.73.11 3.02.75.81 1.2 1.85 1.2 3.11 0 4.43-2.68 5.4-5.24 5.69.42.36.8 1.09.8 2.2 0 1.59-.02 2.88-.02 3.28 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg>
+          </span>
+          GitHub
+        </a>
+        <a class="btn solid" href="/curriculum/" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 2A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5V9.4a2 2 0 0 0-.6-1.4l-5.8-5.8a2 2 0 0 0-1.4-.6H6.5ZM6 4.5c0-.28.22-.5.5-.5H12v4.5c0 .55.45 1 1 1H17v10c0 .28-.22.5-.5.5h-10A.5.5 0 0 1 6 20.5v-16Zm11 4.5h-3V6l3 3ZM8.75 13a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"></path></svg>
+          </span>
+          Curriculum
+        </a>
+      </div>
     </div>
   </header>
 

@@ -1,13 +1,37 @@
 const typedText = document.getElementById("typed-text");
 
-// Navbar blur on scroll
+// Navbar blur on scroll + mobile menu toggle
 const navbar = document.querySelector(".navbar");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+
 function toggleNavbarBlur() {
   if (!navbar) return;
   navbar.classList.toggle("scrolled", window.scrollY > 10);
 }
 toggleNavbarBlur();
 window.addEventListener("scroll", toggleNavbarBlur);
+
+function setMenuState(isOpen) {
+  if (!navbar) return;
+  navbar.classList.toggle("open", isOpen);
+  if (menuToggle) menuToggle.setAttribute("aria-expanded", String(isOpen));
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = !navbar.classList.contains("open");
+    setMenuState(isOpen);
+  });
+}
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => setMenuState(false));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMenuState(false);
+});
 const phrases = [
   "Ingeniero de software",
   "Especialista en automatización",
