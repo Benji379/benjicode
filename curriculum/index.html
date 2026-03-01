@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum | Benjamín Atoche</title>
+  <link rel="icon" href="../public/benjicode.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body.pdf-fullpage { background: #1b1b1b; }
+    .pdf-embed {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+      background: #1b1b1b;
+    }
+    .pdf-fallback {
+      color: #e8eefc;
+      text-align: center;
+      padding: 24px;
+      font-family: "Manrope", system-ui, sans-serif;
+    }
+    .pdf-fallback a { color: #5dd6ff; }
+  </style>
+</head>
+<body class="pdf-fullpage">
+  <object data="/public/CV_BENJAMIN_ATOCHE.pdf#toolbar=1&navpanes=0&scrollbar=1" type="application/pdf" class="pdf-embed">
+    <iframe src="/public/CV_BENJAMIN_ATOCHE.pdf" class="pdf-embed" title="Curriculum de Benjamín Atoche"></iframe>
+    <div class="pdf-fallback">
+      No se pudo cargar el PDF. <a href="/public/CV_BENJAMIN_ATOCHE.pdf">Descargar curriculum.pdf</a>
+    </div>
+  </object>
+</body>
+</html>
