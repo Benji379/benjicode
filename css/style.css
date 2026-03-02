@@ -172,6 +172,9 @@ img {
   gap: 20px;
   font-weight: 600;
   color: var(--muted);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-top {
@@ -338,6 +341,18 @@ img {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 16px;
   align-items: start;
+}
+
+@media (min-width: 1025px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    column-gap: 240px;
+  }
+
+  .hero-visual {
+    margin-left: 120px;
+    justify-self: end;
+  }
 }
 
 .mobile-cta {

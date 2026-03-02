@@ -38,6 +38,19 @@
       ]
     }
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BenjiCode",
+      "url": "https://benjicode.com",
+      "potentialAction": {
+        "@type": "ContactAction",
+        "target": "https://benjicode.com/#contacto",
+        "name": "Contactar a BenjiCode"
+      }
+    }
+  </script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <title>BenjiCode | Desarrollador Full Stack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,11 +96,14 @@
     </div>
 
     <div class="nav-menu" id="menu-panel">
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#contacto">Contacto</a>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links" role="list">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+          <li><a href="/curriculum/">Curriculum</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -225,7 +241,7 @@
     <section id="experiencia" class="section">
       <div class="section-header">
         <p class="eyebrow">Trayectoria</p>
-        <h3>Experiencia reciente</h3>
+        <h2>Experiencia reciente</h2>
       </div>
 
       <div class="grid experience-grid">
@@ -319,7 +335,7 @@
     <section id="habilidades" class="section">
       <div class="section-header">
         <p class="eyebrow">Stack</p>
-        <h3>Habilidades y enfoque</h3>
+        <h2>Habilidades y enfoque</h2>
       </div>
       <div class="grid skills-grid">
         <div class="card">
@@ -357,7 +373,7 @@
       <div class="contact-card">
         <div>
           <p class="eyebrow">Contacto</p>
-          <h3>Construyamos algo</h3>
+          <h2>Construyamos algo</h2>
           <p class="lede">Proyectos web, automatización y productos listos para producción.</p>
           <div class="contact-actions">
             <a class="btn solid" href="mailto:atochelopezb@gmail.com">Escríbeme</a>
