@@ -46,5 +46,56 @@
       No se pudo cargar el PDF. <a href="CV_BENJAMIN_ATOCHE.pdf">Descargar curriculum.pdf</a>
     </div>
   </object>
+
+  <script>
+    // Intercept Ctrl+S / Cmd+S and Ctrl+P / Cmd+P
+    window.addEventListener('keydown', function(e) {
+      const isCmdOrCtrl = e.ctrlKey || e.metaKey;
+      
+      if (isCmdOrCtrl && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        downloadPDF();
+      }
+      
+      if (isCmdOrCtrl && e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        printPDF();
+      }
+    });
+
+    function downloadPDF() {
+      const link = document.createElement('a');
+      link.href = 'CV_BENJAMIN_ATOCHE.pdf';
+      link.download = 'CV_BENJAMIN_ATOCHE.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function printPDF() {
+      let printFrame = document.getElementById('pdf-print-frame');
+      if (!printFrame) {
+        printFrame = document.createElement('iframe');
+        printFrame.id = 'pdf-print-frame';
+        printFrame.style.visibility = 'hidden';
+        printFrame.style.position = 'fixed';
+        printFrame.style.right = '0';
+        printFrame.style.bottom = '0';
+        printFrame.style.width = '0';
+        printFrame.style.height = '0';
+        printFrame.style.border = '0';
+        document.body.appendChild(printFrame);
+      }
+      
+      printFrame.src = 'CV_BENJAMIN_ATOCHE.pdf';
+      
+      printFrame.onload = function() {
+        setTimeout(function() {
+          printFrame.contentWindow.focus();
+          printFrame.contentWindow.print();
+        }, 250);
+      };
+    }
+  </script>
 </body>
 </html>
