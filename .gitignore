@@ -1,0 +1,9 @@
+# Claude / AI Assistants config
+.claude/
+.agents/
+
+# IDEs & System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

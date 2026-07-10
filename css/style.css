@@ -602,7 +602,7 @@ img {
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   animation: nudge 7s ease-in-out infinite alternate;
-  will-change: transform, box-shadow;
+  will-change: transform;
 }
 
 .tech-card:hover,
@@ -933,6 +933,52 @@ img {
   background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
 }
 
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.footer-nav a,
+.footer-contact a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible,
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+  color: var(--text);
+}
+
+.footer-contact {
+  margin: 0 0 12px;
+}
+
+.contact-details a,
+.contact .exp-list a,
+.contact .resume a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.25);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.contact-details a:hover,
+.contact-details a:focus-visible,
+.contact .exp-list a:hover,
+.contact .exp-list a:focus-visible,
+.contact .resume a:hover,
+.contact .resume a:focus-visible {
+  color: var(--text);
+  text-decoration-color: var(--accent);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1167,5 +1213,146 @@ body.pdf-fullpage {
   .tech-card {
     min-height: 64px;
     font-size: 14px;
+  }
+}
+
+/* ==========================================================================
+   Fondo condicional (Toggling) y Estilo Stitch
+   ========================================================================== */
+
+/* Alternar visualización de los fondos */
+body.bg-stitch-active {
+  background: #000000 !important;
+}
+
+body.bg-stitch-active .old-bg-elem {
+  display: none !important;
+}
+
+body.bg-stitch-active .new-bg-elem {
+  display: block;
+}
+
+body.bg-vector-active .new-bg-elem {
+  display: none !important;
+}
+
+body.bg-vector-active .old-bg-elem {
+  display: block;
+}
+
+/* Estilos de la Aurora Stitch */
+.stitch-aurora-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.stitch-aurora-blob {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  will-change: transform;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Blobs internos para movimiento orgánico fluido.
+   El blur va en cada blob (no en el contenedor) para que el navegador cachee
+   la textura difuminada y solo la componga al animar transform. */
+.stitch-blob-1 {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  background: radial-gradient(circle, rgba(46, 211, 162, 0.65), transparent 70%);
+  filter: blur(100px);
+  top: 5%;
+  left: 10%;
+  animation: stitch-drift-1 14s infinite ease-in-out alternate;
+}
+
+.stitch-blob-2 {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  background: radial-gradient(circle, rgba(93, 214, 255, 0.65), transparent 70%);
+  filter: blur(100px);
+  bottom: 5%;
+  right: 5%;
+  animation: stitch-drift-2 18s infinite ease-in-out alternate;
+}
+
+.stitch-blob-3 {
+  position: absolute;
+  width: 65%;
+  height: 65%;
+  background: radial-gradient(circle, rgba(161, 66, 244, 0.55), transparent 70%);
+  filter: blur(100px);
+  top: 20%;
+  right: 15%;
+  animation: stitch-drift-3 12s infinite ease-in-out alternate;
+}
+
+@keyframes stitch-drift-1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(12%, -8%, 0) scale(1.2); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes stitch-drift-2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14%, 10%, 0) scale(0.9); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes stitch-drift-3 {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate3d(6%, 12%, 0) scale(1.15) rotate(120deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+}
+
+/* Canvas del Grid de Puntos Stitch */
+.stitch-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+}
+
+/* ==========================================================================
+   Optimizaciones de renderizado (sin cambio visual)
+   ========================================================================== */
+
+/* Las secciones fuera de pantalla no se pintan ni recalculan layout
+   hasta acercarse al viewport */
+#experiencia,
+#habilidades,
+#contacto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Respeta la preferencia de movimiento reducido: desactiva animaciones
+   decorativas (los usuarios normales no ven ningún cambio) */
+@media (prefers-reduced-motion: reduce) {
+  .gradient,
+  .stitch-blob-1,
+  .stitch-blob-2,
+  .stitch-blob-3,
+  .tech-card,
+  .floating {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
